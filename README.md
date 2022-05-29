@@ -44,6 +44,22 @@ Methods are automatically created when zerotime is initialized that include your
 
 ### Add to your database
 
+```
+const testObj = {
+  name: "Teena",
+  owner: "Garrison",
+  species: "Tiger",
+  sex: "F",
+  birth: "1972-01-01"
+}
+
+await zerotime.add(connection, testObj)
+  ```
+
+### Populate database from a CSV file
+
+`const result = await zerotime.addFromCsv(connection, "file.csv")`
+
 ### Cleaning up
 
 At the end of your program be sure to call the following to end your session:
