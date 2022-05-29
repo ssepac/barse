@@ -17,7 +17,7 @@ Consider the following *pets* table:
 First, get an instance of zerotime:
 ```
 const mysql = require("mysql2");
-const zerotime = require("zerotime");
+const createZerotime = require("zerotime");
 const connection = mysql.createConnection({
   host: <host>,
   user: <user>,
@@ -25,7 +25,7 @@ const connection = mysql.createConnection({
   database: <your_database_name>,
 });
 
-const zerotime = await zerotime(connection, <your_table_name>);
+const zerotime = await createZerotime(connection, <your_table_name>);
 ```
 
 Methods are automatically created when zerotime is initialized that include your tables fields in them. Consider the following calls below.
