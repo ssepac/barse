@@ -1,4 +1,4 @@
-# zeroTime
+# zerotime
 Contains wrapper methods that help you work with a MySQL database.
 
 ## Example Usage
@@ -14,10 +14,10 @@ Consider the following *pets* table:
 |Steve  |Roberts|alligator|\N       |2001-11-01|\N        |
 |Bushemi|Twizzler|crocodile|\N       |2010-01-03|\N        |
 
-First, get an instance of zeroTime:
+First, get an instance of zerotime:
 ```
 const mysql = require("mysql2");
-const { createZeroTime } = require("./api");
+const zerotime = require("zerotime");
 const connection = mysql.createConnection({
   host: <host>,
   user: <user>,
@@ -25,22 +25,22 @@ const connection = mysql.createConnection({
   database: <your_database_name>,
 });
 
-const zeroTime = await createZeroTime(connection, <your_table_name>);
+const zerotime = await zerotime(connection, <your_table_name>);
 ```
 
-Methods are automatically created when zeroTime is initialized that include your tables fields in them. Consider the following calls below.
+Methods are automatically created when zerotime is initialized that include your tables fields in them. Consider the following calls below.
 
 ### Get all records
 
-`const records = await zeroTime.find()`
+`const records = await zerotime.find()`
 
 ### Get all records where species type is *lion*:
 
-`const records= await zeroTime.getSpecies("lion").find()`
+`const records= await zerotime.getSpecies("lion").find()`
 
 ### Get all records where the species is *lion* and name is *Costas*
 
-`const records = await zeroTime.getOwner("Costas").getSpecies("lion").find()`
+`const records = await zerotime.getOwner("Costas").getSpecies("lion").find()`
 
 ### Add to your database
 
@@ -48,4 +48,4 @@ Methods are automatically created when zeroTime is initialized that include your
 
 At the end of your program be sure to call the following to end your session:
 
-`zeroTime.kill()`
+`zerotime.kill()`
